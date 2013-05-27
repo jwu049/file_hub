@@ -1,36 +1,36 @@
- db-schema/DB_VIDEO_CLUSTER_MANAGER__video_cluster_manager.sql
- db-schema/DB_VIDEO_MANAGER__video_manager.sql
- lib/Mixi/Config/Debug.pm
- lib/Mixi/Video.pm
- lib/Mixi/Video/Cluster/Interface/Porter.pm
- lib/Mixi/Video/Cluster/Manager.pm
- lib/Mixi/Video/Cluster/Manager/Porter.pm
- lib/Mixi/Video/Cluster/Plugin/Porter.pm
- lib/Mixi/Video/Constants.pm
- lib/Mixi/Video/Controller/Downloader.pm
- lib/Mixi/Video/Controller/List.pm
- lib/Mixi/Video/Converter/DownloadApplyObserver.pm
- lib/Mixi/Video/DB/ClusterManager.pm
- lib/Mixi/Video/DB/Manager.pm
- lib/Mixi/Video/DB/Node.pm
- script/video/vcnv/download_apply_observer.pl
- tmpl/add_bbs_comment_error.tmpl
- tmpl/add_bbs_main.tmpl
- tmpl/add_diary_main.tmpl
- tmpl/add_enquete_main.tmpl
- tmpl/add_event_comment_error.tmpl
- tmpl/add_event_main.tmpl
- tmpl/edit_bbs_main.tmpl
- tmpl/edit_diary_main.tmpl
- tmpl/edit_enquete_main.tmpl
- tmpl/edit_event_main.tmpl
- tmpl/video/download_video.apply.tmpl
- tmpl/video/download_video.tmpl
- tmpl/video/list_video.tmpl
- tmpl/video/message_template_notify/video_download_mobile.tmpl
- tmpl/video/message_template_notify/video_download_pc.tmpl
- tmpl/view_bbs_admin.tmpl 
- tmpl/view_bbs_member.tmpl
- tmpl/view_event_admin.tmpl
- tmpl/view_event_member.tmpl
- video_shutdown.pl
+db-schema/DB_VIDEO_CLUSTER_MANAGER__video_cluster_manager.sql
+db-schema/DB_VIDEO_MANAGER__video_manager.sql
+lib/Mixi/Config/Debug.pm
+lib/Mixi/Video.pm
+lib/Mixi/Video/Cluster/Interface/Porter.pm
+lib/Mixi/Video/Cluster/Manager.pm
+lib/Mixi/Video/Cluster/Manager/Porter.pm
+lib/Mixi/Video/Cluster/Plugin/Porter.pm
+lib/Mixi/Video/Constants.pm
+lib/Mixi/Video/Controller/Downloader.pm
+lib/Mixi/Video/Controller/List.pm
+lib/Mixi/Video/Converter/DownloadApplyObserver.pm
+lib/Mixi/Video/DB/ClusterManager.pm
+lib/Mixi/Video/DB/Manager.pm
+lib/Mixi/Video/DB/Node.pm
+script/video/vcnv/download_apply_observer.pl
+tmpl/add_bbs_comment_error.tmpl
+tmpl/add_bbs_main.tmpl
+tmpl/add_diary_main.tmpl
+tmpl/add_enquete_main.tmpl
+tmpl/add_event_comment_error.tmpl
+tmpl/add_event_main.tmpl
+tmpl/edit_bbs_main.tmpl
+tmpl/edit_diary_main.tmpl
+tmpl/edit_enquete_main.tmpl
+tmpl/edit_event_main.tmpl
+tmpl/video/download_video.apply.tmpl
+tmpl/video/download_video.tmpl
+tmpl/video/list_video.tmpl
+tmpl/video/message_template_notify/video_download_mobile.tmpl
+tmpl/video/message_template_notify/video_download_pc.tmpl
+tmpl/view_bbs_admin.tmpl 
+tmpl/view_bbs_member.tmpl
+tmpl/view_event_admin.tmpl
+tmpl/view_event_member.tmpl
+video_shutdown.pl
