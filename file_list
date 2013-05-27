@@ -34,3 +34,22 @@ tmpl/view_bbs_member.tmpl
 tmpl/view_event_admin.tmpl
 tmpl/view_event_member.tmpl
 video_shutdown.pl
+
+
+my $school_obj = Test::MockModule->new('Mixi::School');
+$school_obj->mock(search_school_member =>
+    sub {
+        return (1, [
+            {
+            school_id => 10000001001,
+            member_id => 11,
+            graduation_year => 2000,
+            regist_level => 1,
+            is_active => 'y',
+            via =>  'pc',
+            created_at => '2009-01-01 00:00:00',
+            updated_at => '2009-01-01 00:00:00',
+            }
+        ]);
+    }
+);
