@@ -1,0 +1,5 @@
+将本地项目迁到github服务器
+
+git init
+git remote add origin https://github.com/luckymc/test.git
+git push -u origin master
