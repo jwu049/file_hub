@@ -4,3 +4,7 @@
 589D8E47-7636-4485-8642-201506151532
 
 curl -v -H "Content-Type: application/json" -d '{"toDeviceIds":["589D8E47-7636-4485-8642-201506151532"],"toAppName":"i-ajk","data":{"msgType":"push","body":{"mesajk":"\u592e\u884c\u518d\u964d\u606f\uff0c\u4e70\u623f\u9047\u4e0a\u597d\u65f6\u673a\uff01"}}}' http://app20-011.i.ajkdns.com:1905/message/send
+
+
+
+"host":1,"id":"c2d23d06f6d9a9976bd461a0186e3f82","width":300,"height":200
