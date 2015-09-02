@@ -8,3 +8,7 @@ curl -v -H "Content-Type: application/json" -d '{"toDeviceIds":["589D8E47-7636-4
 
 
 "host":1,"id":"c2d23d06f6d9a9976bd461a0186e3f82","width":300,"height":200
+
+0C7DB2CE-4327-4F87-884A-C5174DD2624E
+DF11964F-173A-43DD-9A4F-30F651844723
+0660831B-8728-4846-8F07-201501131054
