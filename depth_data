@@ -1,0 +1,130 @@
+<?php
+
+$depth = new Depth();
+$depth->getData();
+
+class Depth
+{
+    private $host = "http://shuju.wangdaizhijia.com";
+    private $platform_trade_url = "http://shuju.wangdaizhijia.com/platdata-1.html"; // 平台成交数据
+    private $depth_data_url = "http://shuju.wangdaizhijia.com/depth-data.html"; // 深度数据
+
+    private $status = array('day'=>0, 'week'=>1, 'month'=>2);
+
+    public function getData()
+    {   
+        $platform_data = $this->get($this->platform_trade_url);
+        if ($platform_data == false) {
+            return;
+        }
+
+        /**
+         * $plats
+         * 1 => 排名
+         * 2 => 平台id
+         * 3 => 平台名称
+         * 4 => 成交量
+         * 5 => 平均利率
+         * 6 => 平均借款期限
+         * 7 => 累计待还金额
+         * 8 => 近30日资金净流入
+         */
+        preg_match_all('/<td.*?<span.*?<span.*?>\s*(\d+)\s*<.*?plat-info-(\d+)\.html.*?<span>\s*(.+)\s*<\/span>.*<td.*?>\s*([^<]+?)\s*<\/td>\s*<td.*?>\s*([^<]+)\s*<\/td>\s*<td.*?>\s*([^<]+)\s*<\/td>\s*<td.*?>\s*([^<]+)\s*<\/td>\s*<td.*?>\s*([^<]+)\s*</', $platform_data, $plats, PREG_SET_ORDER);
+
+        $result = array();
+        foreach ($plats as $plat) {
+            $key = $plat[1].':'.$plat[3].':'.$plat[2];
+            $result[$key] = array(
+                '成交量'    => $plat[4],
+                '平均利率'  => $plat[5],
+                '平均借贷期限'      => $plat[6],
+                '累计待还金额'      => $plat[7],
+                '近30日资金净流入'  => $plat[8],
+            );
+
+            $res = $this->getDepthData($plat[2], '2015-09-08');
+            //$res = $this->getDepthData($plat[1], '');
+            $result[$key]['深度数据'] = $res;
+            print_r($result);
+        }
+
+        //print_r($result);
+    }   
+
+    /**
+     * 返回深度数据
+     * @param int $id plat_id eg:'红岭创投'
+     * @param string $date 日期2015-09-09，空返回全部日期
+     *
+     * @return array(指标=>详情)
+     *  - 指标：int 成交量/利率等
+     *  - 详情：array 日期=>数据
+     */
+    public function getDepthData($id, $date="")
+    {
+        $plat_info_url = $this->host . "/plat-info-$id.html";
+        $plat_info = $this->get($plat_info_url);
+
+        preg_match_all('/name="chartType".*?value="(\d+)".*?>\s*(.+?)\s*</', $plat_info, $plat_info_res, PREG_SET_ORDER);
+
+        $plat_data = array();
+        foreach ($plat_info_res as $info) {
+            /**
+             * $info
+             * - 1 => id 指标id
+             * - 2 => name 指标名称
+             */
+            $data = array(
+                'wdzjPlatId' => $id,
+                'type1'     => $info[1],
+                'type2'     => 0,
+                'status'    => $this->status['day'],
+            );
+
+            /**
+             * $depth_data
+             * - x: 日期
+             * - y1: 数据
+             */
+            $depth_data = $this->post($this->depth_data_url, $data);
+            $depth_data = json_decode($depth_data, true);
+
+            foreach ($depth_data['x'] as $index => $_date) {
+                if ($date != "" && $_date != $date) {
+                    continue;
+                }
+
+                if (!isset($plat_data[$_date])) {
+                    $plat_data[$_date] = array();
+                }
+
+                $plat_data[$_date][$info[2].':'.$info[1]] = $depth_data['y1'][$index];
+            }
+        }
+
+        return $plat_data;
+    }
+
+    public function get($url)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $res = curl_exec($ch);
+        curl_close($ch);
+        return $res;
+    }
+
+    public function post($url, $data)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        $res = curl_exec($ch);
+        return $res;
+    }
+}
+
