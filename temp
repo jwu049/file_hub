@@ -20,9 +20,6 @@ http://pic1.ajkimg.com/m/a87ab4b133852795da139eaa199d36b0/431x319c.jpg
 
 安居客每日限量抢购优惠房源，先到先得，抢完即止！点击抢购
 
+0.002	0.002	10.10.6.2	789	127.0.0.1:9000	30/Sep/2015:18:39:50 +0800	api.anjuke.com	GET /mobile/v5/recommend/sale/list/history/?app=i-ajk&cid=11&city_id=11&cv=9.0&from=mobile&i=F66D684E-4FD8-4AA3-8B85-201509211419&lat=31.219821&limit=25&lng=121.526013&m=iPhone&macid=0f607264fc6318a92b9e13c65db7cd3c&o=iPhone%2520OS&offset=0&ostype2=ios9&page=1&pm=A01&qtime=20150930185051&udid2=589D8E47-7636-4485-8642-201506151532&uuid2=F66D684E-4FD8-4AA3-8B85-201509211419&uuid=F66D684E-4FD8-4AA3-8B85-201509211419&v=9.0.1 HTTP/1.0	404	365	-	Anjuke/9.0 CFNetwork/758.0.2 Darwin/15.0.0	0.20	180.166.126.94	10.10.9.136	1700	-	app10-295
 
-
-
-
-
-
+
