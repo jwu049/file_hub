@@ -25,3 +25,6 @@ http://pic1.ajkimg.com/m/a87ab4b133852795da139eaa199d36b0/431x319c.jpg
 
 
 php /home/www/user/anlife/app-mobile-job/launcher-beta.php --job_path=app-mobile-job --class=Mobile_Job_InitUser
+
+
+$user['birthday'] = date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP($sheet->getCell('C'.$row)->getValue()));
