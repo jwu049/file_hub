@@ -28,3 +28,10 @@ php /home/www/user/anlife/app-mobile-job/launcher-beta.php --job_path=app-mobile
 
 
 $user['birthday'] = date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP($sheet->getCell('C'.$row)->getValue()));
+
+{"msg_type":1,"msg_text":"\u8fd9\u662f\u4e00\u4e2a\u7eaf\u6587\u672c"} {"platform":1,"city":[11,12,13]}
+
+
+
+
+
