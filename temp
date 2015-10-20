@@ -7,6 +7,9 @@ DF11964F-173A-43DD-9A4F-30F651844723
 0660831B-8728-4846-8F07-201501131054
 
 
+UPDATE SET group_type = (CASE category_id WHEN 2 THEN 3 WHEN 4 THEN 2 WHEN 18 THEN 4 WHEN 19 THEN 1 ELSE 0) FROM interest_group_info WHERE user_id in (8,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29) and category_id in (4,19,2,18);
+
+
 http://pic1.ajkimg.com/m/c2c1eb505f7466d2409e254fd7b11aba/586x332c.jpg
 
 http://pic1.ajkimg.com/m/279ef111a1dfa7ce07e59f51fe5d8f08/274x241c.jpg
